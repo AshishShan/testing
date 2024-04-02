@@ -1,0 +1,133 @@
+{% extends 'faculty/basic.html' %}
+{% block title%}Register{% endblock %}
+
+{% block css %}
+.jumbotron{
+      margin:2% 15% 0% 15%;
+    }
+    .required {
+  color: red;
+}
+         
+ {% endblock %}
+
+{% block body %}
+    
+        <div class="wrapper">
+            <div class="jumbotron">
+                <h1 class="center">STUDENT REGISTRATION FORM</h1>
+                <br>
+                <form action="/faculty/register/" method="post">{% csrf_token %}
+
+                  <div class="form-group">
+                    <label for="name">Name<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" pattern="[A-Za-z ]{1,50}" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email<span class="required">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="student email"  required>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password<span class="required">*</span></label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="password"  required>
+                    <!-- pattern="[a-z]{1,5}_[0-9]+@iiitm.ac.in"-->
+                  </div>
+                  <div class="form-group">
+                    <label for="roll">Roll No.<span class="required">*</span></label>
+                    <input type="roll" class="form-control" id="rol" name="roll" placeholder="student roll no." pattern="[0-9]{4}[A-Z]{3}-[0-9]{3}" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="course">Course<span class="required">*</span></label>
+                    <input type="radio" name="course" id="imt" value="IPG-MTech" required>
+                    <label for="imt">IPG-Mtech</label>
+                    <input type="radio" name="course" id="img" value="IPG-MBA">
+                    <label for="img">IPG-MBA</label>
+                    <input type="radio" name="course" id="cs" value="CSE">
+                    <label for="cs">CSE</label>
+                    <input type="radio" name="course" id="pgmtech" value="PG-MTech">
+                    <label for="pgmtech">PG-MTech</label>
+                    <input type="radio" name="course" id="pgmba" value="PG-MBA">
+                    <label for="pgmba">PG-MBA</label>
+                    <input type="radio" name="course" id="phd" value="Phd.">
+                    <label for="phd">Phd.</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="enroll">Enrollment Number<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="enroll" name="enroll" placeholder="Enrollment Number" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="scontact">Student Contact<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="scontact"  name="scontact" placeholder="Student Contact" pattern="[0-9]{10}" title="Enter a 10-digit number" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="pcontact">Parent/Guardian Contact<span class="required">*</span></label>
+                    <input type="text" class="form-control" id="pcontact"  name="pcontact" placeholder="Parent/Guardian Contact" pattern="[0-9]{10}" title="Enter a 10-digit number" required>
+                  </div>
+
+
+
+                  <div class="form-group">
+                    <label for="address">Home Address<span class="required">*</span></label>
+                    <textarea class="form-control" id="address" rows="4" name="address" required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="gender">Gender<span class="required">*</span></label>
+                    <input type="radio" name="gender" id="male" value="Male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="Female">
+                    <label for="female">Female</label>
+                    <input type="radio" name="course" id="other" value="Other">
+                    <label for="other">Other</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="hostel">Hostel Name/Number<span class="required">*</span></label>
+                    <input type="radio" name="hostel" id="gh" value="GH" required>
+                    <label for="gh">GH</label>
+                    <input type="radio" name="hostel" id="bh1" value="BH1">
+                    <label for="bh1">BH1</label>
+                    <input type="radio" name="hostel" id="bh2" value="BH2">
+                    <label for="bh2">BH2</label>
+                    <input type="radio" name="hostel" id="bh3" value="BH3">   
+                    <label for="bh3">BH3</label> 
+                  </div>
+
+                  <div class="form-group">
+                    <label for="room">Room No. <span class="required">*</span></label>
+                    <input type="text" class="form-control" id="room" name="room" placeholder="Enter Room no." pattern="[0-9]{3}" required>                                           
+                  </div>
+
+                  <div class="form-group">
+                    <label for="image">Student's Image<span class="required">*</span></label>
+                    <input type="file" class="form-control" id="image" name="image" required>
+                  </div>
+                  
+                  <br>
+
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                <br>
+                <br>  
+                <p>
+                <span class="required">*</span>Required field
+            </p>
+            </form>
+            
+        </div>
+         <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  {% endblock %}
+  {% block js %}
+ <script>
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+ </script>
+   {% endblock %}
+ 
